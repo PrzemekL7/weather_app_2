@@ -4,14 +4,22 @@ import SearchBar from "./components/SearchBar";
 import Weather from "./components/Weather";
 import WeatherForecastChart from "./components/WeatherForecastChart";
 
-import './styles/main.scss'
+import "./styles/main.scss";
 
 function App() {
-    const [searchValue, setsearchValue] = useState();
+    const [searchValue, setSearchValue] = useState("");
+
+    function handleSearch() {
+        setSearchValue("");
+    }
 
     return (
         <main className="App">
-            <SearchBar searchValue={searchValue} setsearchValue={setsearchValue} />
+            <SearchBar
+                searchValue={searchValue}
+                setSearchValue={setSearchValue}
+                handleSearch={handleSearch}
+            />
             <Weather />
             <WeatherForecastChart />
         </main>
