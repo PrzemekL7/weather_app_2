@@ -15,16 +15,18 @@ function App() {
     async function handleSearch(){
         const data = await getWeatherFromApi(searchValue);
         setForecastData(data);
-        setSearchValue("");
+        // setSearchValue("");
     }
 
     return (
         <main className="App">
             <SearchBar searchValue={searchValue} setSearchValue={setSearchValue} handleSearch={handleSearch}/>
             {!!Object.keys(forecastData).length && (
-                <Weather currentWeather={{...forecastData.current, ...forecastData.location}}/>
+                <>
+                    <Weather currentWeather={{...forecastData.current, ...forecastData.location}}/>
+                    <WeatherForecastChart forecast={forecastData?.forecast?.forecastday}/>
+                </>
             )}
-            <WeatherForecastChart/>
         </main>
     );
 }
