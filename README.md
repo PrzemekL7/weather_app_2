@@ -25,4 +25,3 @@ Type a city name in the search bar and press 'search' button to let yourself be 
 
 
 Copyright © 2022 [Przemysław Lehr](https://github.com/matthaeuss ).<br/>
-This project is [Beerware](https://github.com/PrzemekL7/weather_app_2/blob/master/LICENSE) licensed.
