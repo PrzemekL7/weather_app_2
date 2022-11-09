@@ -4,6 +4,7 @@ import SearchBar from "./components/SearchBar";
 import Weather from "./components/Weather";
 import WeatherForecastChart from "./components/WeatherForecastChart";
 import {getWeatherFromApi} from "./utils/api";
+import Header from "./components/Header";
 
 import './styles/main.scss';
 
@@ -20,6 +21,7 @@ function App() {
 
     return (
         <main className="App">
+            <Header/>
             <SearchBar searchValue={searchValue} setSearchValue={setSearchValue} handleSearch={handleSearch}/>
             {!!Object.keys(forecastData).length && (
                 <>
