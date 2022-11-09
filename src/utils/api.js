@@ -1,5 +1,5 @@
-const API_KEY = 'cbcaf9f0dfac4765852112253220410';
-const BASE_URL = 'http://api.weatherapi.com/v1/forecast.json';
+const API_KEY = '0647a8c775354631a2a144018220911';
+const BASE_URL = 'https://api.weatherapi.com/v1/forecast.json';
 
 
 export async function getWeatherFromApi (city) {
