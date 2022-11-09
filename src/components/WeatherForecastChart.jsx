@@ -1,15 +1,21 @@
 import ReactECharts from 'echarts-for-react'
-import {useState} from "react";
+import {useState, useEffect} from "react";
 
 function WeatherForecastChart({forecast}) {
 
-    const [temperatures] = useState(forecast.map((f) => f.day.avgtemp_c));
-    const [rains] = useState(forecast.map((f) => f.day.totalprecip_mm));
+    const [temperatures, setTemperatures] = useState(forecast.map((f) => f.day.avgtemp_c));
+    const [rains, setRains] = useState(forecast.map((f) => f.day.totalprecip_mm));
+
+    useEffect(() => {
+        setTemperatures(forecast.map((f) => f.day.avgtemp_c))
+        setRains(forecast.map((f) => f.day.totalprecip_mm))
+    }, [forecast]);
 
     function formatterXAxisLabel(value, index){
         const date = new Date(value);
         return `${date.getUTCDate()}/${date.getUTCMonth() + 1}`
     }
+
 
     return (
         <section className="chart">
