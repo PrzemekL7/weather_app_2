@@ -1,4 +1,6 @@
-const API_KEY = '0647a8c775354631a2a144018220911';
+
+
+const API_KEY = process.env.REACT_APP_API_KEY;
 const BASE_URL = 'https://api.weatherapi.com/v1/forecast.json';
 
 
