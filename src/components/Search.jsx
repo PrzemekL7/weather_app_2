@@ -3,7 +3,7 @@ import { useRef } from "react";
 function Search({ searchValue, setSearchValue, handleSearch }) {
     const searchRef = useRef(null);
 
-    function handleFocus () {
+    function handleFocus() {
         searchRef.current.classList.add("focus");
     }
 
@@ -11,15 +11,19 @@ function Search({ searchValue, setSearchValue, handleSearch }) {
         setSearchValue(event.target.value);
     }
 
-    function handleOnBlur () {
-        if(searchValue === "") {
-            searchRef.current.classList.remove("focus")
+    function handleOnBlur() {
+        if (searchValue === "") {
+            searchRef.current.classList.remove("focus");
         }
     }
 
+    function handleSubmit(event) {
+        event.preventDefault();
+        handleSearch();
+    }
 
     return (
-        <div className="search" ref={searchRef}>
+        <form className="search" ref={searchRef} onSubmit={handleSubmit}>
             <div className="search__wrapper">
                 <label className="search__lbl" htmlFor="search">
                     Type city
@@ -33,9 +37,9 @@ function Search({ searchValue, setSearchValue, handleSearch }) {
                     onFocus={handleFocus}
                     onBlur={handleOnBlur}
                 />
+                <button className="search__btn" type="submit">Search</button>
             </div>
-            <button className="search__btn" onClick={handleSearch}>Search</button>
-        </div>
+        </form>
     );
 }
 
